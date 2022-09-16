@@ -664,9 +664,9 @@ section {
     margin: 0px;
     text-transform: uppercase;
     margin-top: 16px;
-    color: var(--title-text-color);
+    color: transparent;
 }
-.window-input {
+/* .window-input {
     width: 358px;
     height: 50px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -685,12 +685,25 @@ section {
     align-items: center;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
-    }
+} */
+.window-input {
+    width: 358px;
+    height: 50px;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    padding-left: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    outline: none;
 
+}
 .btn-window {
     width: 200px;
     height: 50px;
     display: flex;
+    margin-left: 12px;
+    font-weight: 700;
 }
 .window-icon {
     margin-left: 10px;
@@ -698,9 +711,7 @@ section {
 .studio-footer {
     text-decoration: none;
 }
-textarea {
-    background-color: transparent;
-}
+
 .footer-geoadress {
     color:#FFFFFF;
     text-decoration: none;
@@ -835,8 +846,16 @@ textarea {
 
 
 .visually-hidden {
-    position: fixed;
-    transform: scale(0);
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
 }
 .check-text span {
     width: 16px;
@@ -848,7 +867,7 @@ textarea {
     align-items: center;
     justify-content: center;
     fill: transparent;
-    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-check:checked + .check-text span {
     background-color: var(--accent-color);
@@ -868,17 +887,27 @@ textarea {
     resize: none;
     margin-top: 4px;
 }
+.modal-text:focus , .modal-text:hover {
+    outline-color: var(--accent-color);
+}
 .modal-icon {
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
 }
+
+.input:checked + .icon {
+    background-image: none;
+    fill:#FFFFFF;
+    background-color: var(--accent-color);
+}
+
 .input-wrap {
     position: relative;
     margin-top: 4px;
 }
-.modal-input:focus {
+.modal-input:focus , .modal-input:hover {
     outline-color: var(--accent-color);
 }
 .modal-input:focus + .modal-icon {
@@ -888,7 +917,6 @@ textarea {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
-    /* visibility: hidden; */
 }
 
 .modal {
